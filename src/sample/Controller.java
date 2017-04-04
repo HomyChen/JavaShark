@@ -96,6 +96,14 @@ public class Controller implements Initializable{
         // and there is all sorts of fancy stuff happening "under the hood". You just need to know that, for example,
         // the next line is connecting the colCategory column to the category field in a DataItem.
 
+        if(currentPcap == null){
+            welcome.setVisible(true);
+            tblViewDataItems.setVisible(false);
+        }else{
+            welcome.setVisible(false);
+            tblViewDataItems.setVisible(true);
+        }
+
         colIndex.setCellValueFactory(new PropertyValueFactory<packetProperty,Integer>("index"));
         colTime.setCellValueFactory(new PropertyValueFactory<packetProperty,String>("time"));
         colSourceIp.setCellValueFactory(new PropertyValueFactory<packetProperty,String>("IpSrc"));

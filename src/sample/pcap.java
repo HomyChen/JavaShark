@@ -62,7 +62,7 @@ public class pcap {
 
         //Second ,open up the selected file using openOffline call
         Pcap pcap = Pcap.openOffline(FileAddress, errbuf);
-        System.out.println("File address is:" + FileAddress); // Fan testing1
+        //System.out.println("File address is:" + FileAddress); // Fan testing1
 
 
         //Throw exception if it cannot open the file
@@ -280,13 +280,24 @@ public class pcap {
         PcapPacketArrayList packets = this.readOfflineFiles();
         HashSet<String> ipAddresses = new HashSet<>();
         Ip4 ip = new Ip4();
+        Ip6 ip6 = new Ip6();
         for(PcapPacket packet : packets){
-            if (packet.hasHeader(ip)) {
+            if (packet.hasHeader(ip)){
                 try {
                     InetAddress ip4Src = InetAddress.getByAddress(ip.source());
                     ipAddresses.add(ip4Src.toString());
                     InetAddress ip4Dest = InetAddress.getByAddress(ip.destination());
                     ipAddresses.add(ip4Dest.toString());
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(packet.hasHeader(ip6)){
+                try {
+                    InetAddress ip6Src = InetAddress.getByAddress(ip6.source());
+                    ipAddresses.add(ip6Src.toString());
+                    InetAddress ip6Dest = InetAddress.getByAddress(ip6.destination());
+                    ipAddresses.add(ip6Dest.toString());
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
@@ -298,7 +309,8 @@ public class pcap {
     public HashMap<String, ArrayList<Long>> getUsageStat() throws ExceptionReadingPcapFiles {
         HashMap<String, ArrayList<Long>> usageStat = new HashMap<>();
         PcapPacketArrayList packets = this.readOfflineFiles();
-        Ip4 ip = new Ip4();
+        Ip4 ip4 = new Ip4();
+        Ip6 ip6 = new Ip6();
         HashSet<String> ipSet = this.getAllAddresses();
         //Add all IP Addresses into HashMap as keys
         for(String ipAddress : ipSet){
@@ -312,22 +324,41 @@ public class pcap {
         }
         //Iterate over packets and add data into HashMap array
         for(PcapPacket packet : packets){
-            if (packet.hasHeader(ip)) {
+            if (packet.hasHeader(ip4)){
                 try {
                     //Search through HashMap for the destination IP of this packet as the key, add the packet length into inbound part of the array (index 0)
-                    InetAddress ip4Dest = InetAddress.getByAddress(ip.destination());
+                    InetAddress ip4Dest = InetAddress.getByAddress(ip4.destination());
                     String ip4DestString = ip4Dest.toString();
                     long oldInbound = usageStat.get(ip4DestString).get(0);
-                    usageStat.get(ip4DestString).add(0, oldInbound + (long) packet.getCaptureHeader().wirelen());
+                    usageStat.get(ip4DestString).set(0, (oldInbound + (long) packet.getCaptureHeader().wirelen()));
 
                     //Search through HashMap for the source IP of this packet as the key, add the packet length into outbound part of the array (index 1)
-                    InetAddress ip4Src = InetAddress.getByAddress(ip.source());
+                    InetAddress ip4Src = InetAddress.getByAddress(ip4.source());
                     String ip4SrcString = ip4Src.toString();
                     long oldOutbound = usageStat.get(ip4SrcString).get(1);
-                    usageStat.get(ip4SrcString).add(1, oldOutbound + (long) packet.getCaptureHeader().wirelen());
+                    usageStat.get(ip4SrcString).set(1, (oldOutbound + (long) packet.getCaptureHeader().wirelen()));
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
+            }
+            if(packet.hasHeader(ip6)){
+                try {
+                    //Search through HashMap for the destination IP of this packet as the key, add the packet length into inbound part of the array (index 0)
+                    InetAddress ip6Dest = InetAddress.getByAddress(ip6.destination());
+                    String ip6DestString = ip6Dest.toString();
+                    long oldInbound = usageStat.get(ip6DestString).get(0);
+                    usageStat.get(ip6DestString).set(0, (oldInbound + (long) packet.getCaptureHeader().wirelen()));
+
+                    //Search through HashMap for the source IP of this packet as the key, add the packet length into outbound part of the array (index 1)
+                    InetAddress ip6Src = InetAddress.getByAddress(ip6.source());
+                    String ip6SrcString = ip6Src.toString();
+                    long oldOutbound = usageStat.get(ip6SrcString).get(1);
+                    usageStat.get(ip6SrcString).set(1, (oldOutbound + (long) packet.getCaptureHeader().wirelen()));
+
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
         return usageStat;

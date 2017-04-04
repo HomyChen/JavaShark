@@ -41,6 +41,11 @@ public class UsageStatController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            System.out.println("Test - Total Data: "+currentPcap.getTotalData());
+        } catch (ExceptionReadingPcapFiles exceptionReadingPcapFiles) {
+            exceptionReadingPcapFiles.printStackTrace();
+        }
+        try {
             HashMap<String, ArrayList<Long>> rows = currentPcap.getUsageStat();
             Set<String> ipAddresses = rows.keySet();
             long totalData = currentPcap.getTotalData();

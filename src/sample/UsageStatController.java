@@ -28,7 +28,7 @@ import static sample.Controller.packetInfo;
 /**
  * Created by Homy Chen on 2017-04-03.
  */
-public class UsageStatController implements Initializable{
+public class UsageStatController extends Controller implements Initializable{
     private pcap currentPcap = Controller.getCurrentPcap();
     @FXML
     private TableView<UsageStatRow> tblViewUsageStats;
@@ -77,18 +77,6 @@ public class UsageStatController implements Initializable{
         tblViewUsageStats.setItems(enteredUsageStatItems);
         tblViewUsageStats.getColumns().addAll(colIPAddress, colInboundUsageBytes, colOutboundUsageBytes, colInboundUsagePer, colOutboundUsagePer);
     }
-
-    @FXML
-    public void goBackToTable(ActionEvent e) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Main.window.setScene(new Scene(root, 600, 400));
-    }
-
-    @FXML
-    public void pieChartShow(ActionEvent e) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-        Main.window.setScene(new Scene(root, 600, 400));
-    }
     @FXML
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
         final FileChooser fileChooser = new FileChooser();
@@ -97,20 +85,5 @@ public class UsageStatController implements Initializable{
             currentPcap = new pcap(file.getPath());
             System.out.println("testing3: size of packetInfo" + packetInfo.size());
         }
-    }
-
-    public void usageShow(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));
-        Main.window.setScene(new Scene(root, 700, 400));
-    }
-
-    public void statsShow(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
-        Main.window.setScene(new Scene(root, 700, 400));
-    }
-
-    public void close(ActionEvent actionEvent) {
-        Platform.exit();
-        System.exit(0);
     }
 }

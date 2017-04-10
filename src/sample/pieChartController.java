@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -23,12 +26,17 @@ import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
+import javafx.stage.FileChooser;
+
+import static sample.Controller.packetInfo;
 
 
 /**
  * Created by Ariest on 2017-04-01.
  */
 public class pieChartController implements Initializable {
+    private pcap currentPcap = Controller.getCurrentPcap();
+
     @FXML
     private PieChart chart;
     @FXML
@@ -72,10 +80,6 @@ public class pieChartController implements Initializable {
                         }
                     });
         }
-
-
-
-
     }
     @FXML
     public void goBackToTable(ActionEvent e) throws Exception{
@@ -88,6 +92,36 @@ public class pieChartController implements Initializable {
 
 
 
+    }
+
+    @FXML
+    public void pieChartShow(ActionEvent e) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        Main.window.setScene(new Scene(root, 600, 400));
+    }
+    @FXML
+    public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
+        final FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(Main.window);
+        if (file != null) {
+            currentPcap = new pcap(file.getPath());
+            System.out.println("testing3: size of packetInfo" + packetInfo.size());
+        }
+    }
+
+    public void usageShow(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));
+        Main.window.setScene(new Scene(root, 700, 400));
+    }
+
+    public void statsShow(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
+        Main.window.setScene(new Scene(root, 700, 400));
+    }
+
+    public void close(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 
 }

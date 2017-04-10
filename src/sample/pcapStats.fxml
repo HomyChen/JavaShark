@@ -7,8 +7,34 @@
 <?import javafx.scene.layout.VBox?>
 
 
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.MenuBar?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pcapStatsController">
    <children>
+       <MenuBar>
+           <menus>
+               <Menu mnemonicParsing="false" text="File">
+                   <items>
+                       <MenuItem fx:id="inputFIle" mnemonicParsing="false" onAction="#inputFile" text="Import File" />
+                       <MenuItem fx:id="exit" mnemonicParsing="false" text="Close" onAction="#close"/>
+                   </items>
+               </Menu>
+               <Menu mnemonicParsing="false" text="Analysis">
+                   <items>
+                       <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
+                       <MenuItem fx:id="summaryTable" mnemonicParsing="false" onAction="#goBackToTable" text="Summary Table" />
+                       <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="TCP/UDP Piechart" />
+                       <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Data" />
+                   </items>
+               </Menu>
+               <Menu mnemonicParsing="false" text="Help">
+                   <items>
+                       <MenuItem mnemonicParsing="false" text="About" />
+                   </items>
+               </Menu>
+           </menus>
+       </MenuBar>
       <StackPane prefHeight="373.0" prefWidth="600.0">
          <children>
             <TableView fx:id="tblViewPcapStatsRow" prefHeight="376.0" prefWidth="600.0">
@@ -19,6 +45,5 @@
             </TableView>
          </children>
       </StackPane>
-      <Button mnemonicParsing="false" text="Back" onAction="#goBackToTable"/>
    </children>
 </VBox>

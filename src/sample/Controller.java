@@ -77,7 +77,6 @@ public class Controller implements Initializable{
                             currentPcap = new pcap(file.getPath());
                          //   pcapview testview = new pcapview(currentPcap);
                           //  testview.fileNameView();
-                           currentPcap.readOfflineFiles();
                      ;
                             welcome.setVisible(false);
                             tblViewDataItems.setVisible(true);

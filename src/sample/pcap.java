@@ -33,16 +33,15 @@ public class pcap {
     private int packetCount = 0;
     private int tcpCount = 0;
     private int udpCount = 0;
-
-
+    private PcapPacketArrayList pcapPacketArrayList;
 
     /**
      *
      * @param FileAddress  Address and the name of the PCAP file.
      */
-    public pcap(String FileAddress)
-    {
+    public pcap(String FileAddress) throws ExceptionReadingPcapFiles {
         this.FileAddress = FileAddress;
+        this.pcapPacketArrayList = this.readOfflineFiles();
     }
     public int getTcpCount(){
         return  tcpCount;
@@ -60,7 +59,6 @@ public class pcap {
     }
 
     public int getPacketCount() throws ExceptionReadingPcapFiles {
-        this.readOfflineFiles();
         return packetCount;
     }
 
@@ -228,7 +226,7 @@ public class pcap {
 
     /****------HOMY/IRIS------START****/
     public void printPacketsArrayList() throws ExceptionReadingPcapFiles {
-        PcapPacketArrayList pcapPacketArrayList = this.readOfflineFiles();
+        PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
         int totalDataInBytes = 0;
         long timeStampBegin = 0;
         long timeStampEnd = 0;
@@ -275,7 +273,7 @@ public class pcap {
     }
 
     public int getTotalData() throws ExceptionReadingPcapFiles {
-        PcapPacketArrayList pcapPacketArrayList = this.readOfflineFiles();
+        PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
         int totalDataInBytes = 0;
         for(PcapPacket packet : pcapPacketArrayList){
             totalDataInBytes = totalDataInBytes + packet.getCaptureHeader().wirelen();
@@ -284,7 +282,7 @@ public class pcap {
     }
 
     public double getTotalTime() throws ExceptionReadingPcapFiles {
-        PcapPacketArrayList pcapPacketArrayList = this.readOfflineFiles();
+        PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
         long timeStampBegin = 0;
         long timeStampEnd = 0;
         for(PcapPacket packet : pcapPacketArrayList){
@@ -300,26 +298,23 @@ public class pcap {
     }
 
     public double getUdpPer() throws ExceptionReadingPcapFiles{
-        this.readOfflineFiles();
         double udpPer = ((double) udpCount / (double) packetCount)*100;
         return udpPer;
     }
 
     public double getTcpPer() throws ExceptionReadingPcapFiles{
-        this.readOfflineFiles();
         double tcpPer = ((double) tcpCount/ (double) packetCount)*100;
         return tcpPer;
     }
 
     public double getDataRate() throws ExceptionReadingPcapFiles {
-        this.readOfflineFiles();
         double dataRate = ((double)getTotalData()/ (double)getTotalTime());
         return dataRate;
     }
 
 
     private HashSet<String> getAllAddresses() throws ExceptionReadingPcapFiles {
-        PcapPacketArrayList packets = this.readOfflineFiles();
+        PcapPacketArrayList packets = this.pcapPacketArrayList;
         HashSet<String> ipAddresses = new HashSet<>();
         Ip4 ip = new Ip4();
         Ip6 ip6 = new Ip6();
@@ -350,7 +345,7 @@ public class pcap {
 
     public HashMap<String, ArrayList<Long>> getUsageStat() throws ExceptionReadingPcapFiles {
         HashMap<String, ArrayList<Long>> usageStat = new HashMap<>();
-        PcapPacketArrayList packets = this.readOfflineFiles();
+        PcapPacketArrayList packets = this.pcapPacketArrayList;
         Ip4 ip4 = new Ip4();
         Ip6 ip6 = new Ip6();
         HashSet<String> ipSet = this.getAllAddresses();

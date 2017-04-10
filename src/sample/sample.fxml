@@ -17,20 +17,19 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem fx:id="inputFIle" mnemonicParsing="false" onAction="#inputFile" text="Import File" />
-              <MenuItem fx:id="exit" mnemonicParsing="false" text="Close" onAction="#close"/>
+              <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#close" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Analysis">
             <items>
+                  <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
               <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="Tcp/Udp Piechart" />
                   <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Data" />
-                  <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
             </items>
           </Menu>
         </menus>

@@ -57,11 +57,12 @@ public class UsageStatController implements Initializable{
             Set<String> ipAddresses = rows.keySet();
             long totalData = currentPcap.getTotalData();
             for(String ip : ipAddresses){
+                String ipStripped = ip.replaceAll("/", "");
                 long inbound = rows.get(ip).get(0);
                 long outbound = rows.get(ip).get(1);
-                double inboundPer = (((double)inbound)/(totalData))*100;
-                double outboundPer = (((double)outbound)/(totalData))*100;
-                enteredUsageStatItems.add(new UsageStatRow(ip, inbound, outbound, inboundPer, outboundPer));
+                String inboundPer = String.format("%.3f", (((double)inbound)/(totalData))*100);
+                String outboundPer = String.format("%.3f", (((double)outbound)/(totalData))*100);
+                enteredUsageStatItems.add(new UsageStatRow(ipStripped, inbound, outbound, inboundPer, outboundPer));
             }
         } catch (ExceptionReadingPcapFiles exceptionReadingPcapFiles) {
             exceptionReadingPcapFiles.printStackTrace();

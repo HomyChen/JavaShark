@@ -39,11 +39,11 @@ public class pcapStatsController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            String udpPer = String.valueOf(currentPcap.getUdpPer());
-            String tcpPer = String.valueOf(currentPcap.getTcpPer());
+            String udpPer = String.format("%.2f", currentPcap.getUdpPer());
+            String tcpPer = String.format("%.2f", currentPcap.getTcpPer());
             String totalData = String.valueOf(currentPcap.getTotalData());
             String totalPacket = String.valueOf(currentPcap.getPacketCount());
-            String dataRate = String.valueOf(currentPcap.getDataRate());
+            String dataRate = String.format("%.2f", currentPcap.getDataRate());
             thePcapStatItems.add(new pcapStatsRow("TCP Percentage", tcpPer));
             thePcapStatItems.add(new pcapStatsRow("UDP Percentage", udpPer));
             thePcapStatItems.add(new pcapStatsRow("Total Packet Data (in bytes)", totalData));

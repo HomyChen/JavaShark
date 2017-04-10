@@ -68,22 +68,12 @@ public class Controller implements Initializable{
     }
     @FXML
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
-       //Main.window.setScene(Main.scene1);
-
-
         final FileChooser fileChooser = new FileChooser();
                         File file = fileChooser.showOpenDialog(Main.window);
                         if (file != null) {
-                           //currentPcap = new pcap(file.getName());
                             currentPcap = new pcap(file.getPath());
-                         //   pcapview testview = new pcapview(currentPcap);
-                          //  testview.fileNameView();
-                     ;
                             welcome.setVisible(false);
                             tblViewDataItems.setVisible(true);
-                            //populate table
-                            //tblViewDataItems.setItems(packetInfo);
-                           // System.out.println("testing2:" + packetInfo.get(50).index + " "+ Controller.packetInfo.get(50).protocol);
                             System.out.println("testing3: size of packetInfo" + packetInfo.size());
 
                         }
@@ -119,16 +109,6 @@ public class Controller implements Initializable{
         tblViewDataItems.getColumns().addAll(colIndex, colTime,colSourceIp,colDestinationIp,colProtocol,colLength);
 
     }
-
-
-    //packetInfo.add(new packetProperty(i, t, FormatUtils.ip(ip.source()), FormatUtils.ip(ip.destination()), "TCP", l));
-
-    /*@FXML
-    public void addDataToTable(int i, String t, String SrcIP, String DstIP, String Prot, int l) {
-        packetInfo.add(new packetProperty( i, t, SrcIP, DstIP, Prot, l));
-
-    }*/
-
     /***HOMY/IRIS***/
     public void usageShow(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));

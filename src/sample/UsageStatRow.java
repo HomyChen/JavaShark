@@ -8,10 +8,10 @@ public class UsageStatRow {
     private String ipAddress;
     private Long inboundRate;
     private Long outboundRate;
-    private double inboundRatePer;
-    private double outboundRatePer;
+    private String inboundRatePer;
+    private String outboundRatePer;
 
-    public UsageStatRow(String ipAddress, long inboundRate, long outboundRate, double inboundRatePer, double outboundRatePer) {
+    public UsageStatRow(String ipAddress, long inboundRate, long outboundRate, String inboundRatePer, String outboundRatePer) {
         this.ipAddress = ipAddress;
         this.inboundRate = inboundRate;
         this.outboundRate = outboundRate;
@@ -47,19 +47,19 @@ public class UsageStatRow {
         this.outboundRate = outboundRate;
     }
 
-    public double getInboundRatePer() {
+    public String getInboundRatePer() {
         return inboundRatePer;
     }
 
-    public double getOutboundRatePer() {
+    public String getOutboundRatePer() {
         return outboundRatePer;
     }
 
-    public void setInboundRatePer(double inboundRatePer) {
+    public void setInboundRatePer(String inboundRatePer) {
         this.inboundRatePer = inboundRatePer;
     }
 
-    public void setOutboundRatePer(double outboundRatePer) {
+    public void setOutboundRatePer(String outboundRatePer) {
         this.outboundRatePer = outboundRatePer;
     }
 }

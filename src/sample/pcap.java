@@ -17,12 +17,9 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.tcpip.Udp;
 import org.jnetpcap.util.PcapPacketArrayList;
 
+import static jdk.nashorn.internal.objects.NativeMath.round;
 import static sample.Controller.packetInfo;
 
-/**
-
- * Doing some IO functions related to PCAP files.
- */
 public class pcap {
 
     /*************************************************
@@ -35,10 +32,6 @@ public class pcap {
     private int udpCount = 0;
     private PcapPacketArrayList pcapPacketArrayList;
 
-    /**
-     *
-     * @param FileAddress  Address and the name of the PCAP file.
-     */
     public pcap(String FileAddress) throws ExceptionReadingPcapFiles {
         this.FileAddress = FileAddress;
         this.pcapPacketArrayList = this.readOfflineFiles();
@@ -66,37 +59,21 @@ public class pcap {
         this.packetCount = packetCount;
     }
 
-    /**
-     * Opens the offline Pcap-formatted file.
-     *
-     * @return PcapPacketArrayList  List of packets in the file
-     * @throws ExceptionReadingPcapFiles Facing any erro in opening the file
-     */
     public PcapPacketArrayList readOfflineFiles() throws ExceptionReadingPcapFiles
     {
         this.setPacketCount(0);
         this.setTcpCount(0);
         this.setUdpCount(0);
-        //First, setup error buffer and name for our file
+
         final StringBuilder errbuf = new StringBuilder(); // For any error msgs
 
-        //Second ,open up the selected file using openOffline call
         Pcap pcap = Pcap.openOffline(FileAddress, errbuf);
-        //System.out.println("File address is:" + FileAddress); // Fan testing1
-
-
-        //Throw exception if it cannot open the file
         if (pcap == null) {
             System.out.println("Could not open pcap file....");
             throw new ExceptionReadingPcapFiles(errbuf.toString());
-
         }
-
-        //Next, we create a packet handler which will receive packets from the libpcap loop.
         PcapPacketHandler<PcapPacketArrayList> jpacketHandler = new PcapPacketHandler<PcapPacketArrayList>() {
-
             public void nextPacket(PcapPacket packet, PcapPacketArrayList PacketsList) {
-                //System.out.println("Step in-----------nextPacket method");
                 Ip4 ip = new Ip4();
                 Ip6 ip1 = new Ip6();
                 Tcp tcp = new Tcp();
@@ -104,67 +81,24 @@ public class pcap {
                 packetCount++;
 
                 if(packet.hasHeader(tcp)){
-                    //System.out.println("TCP");
                     tcpCount++;
-                    //System.out.println("TCP number" + tcpCount);
                 } else if (packet.hasHeader(udp)) {
-                    //System.out.println("UDP");
                     udpCount++;
-                    //System.out.println("UDP number" + udpCount);
                 }
-                //---Fan testing--- Print out information from packet
-               /* System.out.printf("Received packet at %s caplen=%-4d len=%-4d %s\n",
-                        new Date(packet.getCaptureHeader().timestampInMillis()),
-                        packet.getCaptureHeader().caplen(),  // Length actually captured
-                        packet.getCaptureHeader().wirelen(), // Original length
-                        "Fan testing"                                 // placeholder
-                );
 
-
-//Create loop to add value into Jtable
-                for(int i=0;i<PacketsList.size();i++)
-                {
-                    PcapPacket Packet= PacketsList.get(i);
-
-                   // Timestamp timestamp = new Ip4.Timestamp(Packet.getCaptureHeader().timestampInMillis());
-                    packetInfo[i][0]=i+1;
-                    packetInfo[i][1]=new Date(Packet.getCaptureHeader().timestampInMillis());
-                    Packet.getHeader(ip);
-                    if(Packet.hasHeader(ip))
-                    {
-                        packetInfo[i][2]= FormatUtils.ip(ip.source());
-                        packetInfo[i][3]=FormatUtils.ip(ip.destination());
-
-                    }
-                    packetInfo[i][4]=Packet
-                    Packet.getHeader(tcp);
-                    if (Packet.hasHeader(tcp))
-                    {
-                        obj[i][3] = new Integer(tcp.destination()).toString();
-                        obj[i][5] = new Integer(tcp.source()).toString();
-                    }
-                    obj[i][6]=Packet.toString();
-                }
-                DefaultTableModel model= new DefaultTableModel(obj, col);
-
-                jTable1.setModel(model);*/
                 PacketsList.add(packet);
 
                 Integer i = new Integer(PacketsList.size());
 
                 Integer l = new Integer(packet.getCaptureHeader().wirelen());
 
-              //  byte[] data = packet.getByteArray(0, packet.size());
-               // byte[] sIP = new byte[4]; // Should be outside the callback method for efficiency
-               // byte[] dIP = new byte[4];
                 if (packet.hasHeader(ip) == false && packet.hasHeader(ip1)== false) {
-                    return; // Not IP packet
+                    return;
                 }
 
                 String sourceIP = "";
                 String destinationIP = "";
-                //ip.source(sIP);
-               // ip.destination(dIP);
+
                 if(packet.hasHeader(ip)){
                 sourceIP = org.jnetpcap.packet.format.FormatUtils.ip(packet.getHeader(ip).source());
                destinationIP = org.jnetpcap.packet.format.FormatUtils.ip(packet.getHeader(ip).destination());}
@@ -172,8 +106,6 @@ public class pcap {
                     sourceIP = org.jnetpcap.packet.format.FormatUtils.ip(packet.getHeader(ip1).source());
                      destinationIP = org.jnetpcap.packet.format.FormatUtils.ip(packet.getHeader(ip1).destination());
                 }
-
-
 
                 Date date = new Date(packet.getCaptureHeader().timestampInMicros());
                 Format formatter = new SimpleDateFormat("MM-dd HH:mm:ss");
@@ -189,28 +121,11 @@ public class pcap {
                 if(header.getName().equals("Payload")){
                 s = header1.getName();
                 }else{
-
                     s = header.getName();
                 }
-
-                //packetInfo.add(new packetProperty(i, t, FormatUtils.ip(ip.source()), FormatUtils.ip(ip.destination()),"TCP", l));
                 packetInfo.add(new packetProperty(i, t, sourceIP, destinationIP,s, l));
-
-                //System.out.println("testing1:" + Controller.packetInfo.get(PacketsList.size()-1).index + " "+ Controller.packetInfo.get(PacketsList.size()-1).time);
-
-                //System.out.println("Step in-----------nextPacket method ----7");
             }
         };
-
-        /***************************************************************************
-         * (From jNetPcap comments:)
-         * Fourth we enter the loop and tell it to capture unlimited packets. The loop
-         * method does a mapping of pcap.datalink() DLT value to JProtocol ID, which
-         * is needed by JScanner. The scanner scans the packet buffer and decodes
-         * the headers. The mapping is done automatically, although a variation on
-         * the loop method exists that allows the programmer to specify exactly
-         * which protocol ID to use as the data link type for this pcap interface.
-         **************************************************************************/
 
         try {
             PcapPacketArrayList packets = new PcapPacketArrayList();
@@ -223,8 +138,7 @@ public class pcap {
         }
     }
 
-
-    /****------HOMY/IRIS------START****/
+    /****------HOMY/IRIS------****/
     public void printPacketsArrayList() throws ExceptionReadingPcapFiles {
         PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
         int totalDataInBytes = 0;
@@ -298,12 +212,12 @@ public class pcap {
     }
 
     public double getUdpPer() throws ExceptionReadingPcapFiles{
-        double udpPer = ((double) udpCount / (double) packetCount)*100;
+        double udpPer = (((double) udpCount / (double) packetCount)*100);
         return udpPer;
     }
 
     public double getTcpPer() throws ExceptionReadingPcapFiles{
-        double tcpPer = ((double) tcpCount/ (double) packetCount)*100;
+        double tcpPer = (((double) tcpCount/ (double) packetCount)*100);
         return tcpPer;
     }
 
@@ -400,9 +314,7 @@ public class pcap {
         }
         return usageStat;
     }
-    /****------HOMY/IRIS------END****/
 
-    /****------HOMY------START****/
     // Homy -- own method for finding TCP flags - the one from jNet, Tcp.flagsEnum(), does not seem to work
     private ArrayList returnFlags(Tcp tcp){
         ArrayList<String> flags = new ArrayList<String>();
@@ -424,6 +336,6 @@ public class pcap {
         return flags;
     }
 
-    /****------HOMY------END****/
+    /****------HOMY/IRIS------END****/
 }
 

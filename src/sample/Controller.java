@@ -25,9 +25,6 @@ import java.net.URL;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-//import static sample.preLoader.stage;
-
-
 public class Controller implements Initializable{
     @FXML
     private StackPane pane1;
@@ -51,6 +48,12 @@ public class Controller implements Initializable{
     private TableColumn<packetProperty, String> colProtocol;
     @FXML
     private TableColumn<packetProperty, Integer> colLength;
+    @FXML
+    private MenuItem stats;
+    @FXML
+    private MenuItem summaryTable;
+    @FXML
+    private MenuItem usageShow;
 
     public static ObservableList<packetProperty> packetInfo = FXCollections.observableArrayList();
 
@@ -60,34 +63,24 @@ public class Controller implements Initializable{
     }
     @FXML
     public void pieChartShow(ActionEvent e) throws Exception{
-
         Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-
-
         Main.window.setScene(new Scene(root, 600, 400));
-
-
     }
     @FXML
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
-       //Main.window.setScene(Main.scene1);
-
-
         final FileChooser fileChooser = new FileChooser();
                         File file = fileChooser.showOpenDialog(Main.window);
                         if (file != null) {
-                           //currentPcap = new pcap(file.getName());
                             currentPcap = new pcap(file.getPath());
-                         //   pcapview testview = new pcapview(currentPcap);
-                          //  testview.fileNameView();
-                     ;
                             welcome.setVisible(false);
                             tblViewDataItems.setVisible(true);
-                            //populate table
-                            //tblViewDataItems.setItems(packetInfo);
-                           // System.out.println("testing2:" + packetInfo.get(50).index + " "+ Controller.packetInfo.get(50).protocol);
+                            welcome.setVisible(false);
+                            tblViewDataItems.setVisible(true);
+                            stats.setDisable(false);
+                            summaryTable.setDisable(false);
+                            pieChartShow.setDisable(false);
+                            usageShow.setDisable(false);
                             System.out.println("testing3: size of packetInfo" + packetInfo.size());
-
                         }
                     }
 
@@ -101,9 +94,17 @@ public class Controller implements Initializable{
         if(currentPcap == null){
             welcome.setVisible(true);
             tblViewDataItems.setVisible(false);
+            stats.setDisable(true);
+            summaryTable.setDisable(true);
+            pieChartShow.setDisable(true);
+            usageShow.setDisable(true);
         }else{
             welcome.setVisible(false);
             tblViewDataItems.setVisible(true);
+            stats.setDisable(false);
+            summaryTable.setDisable(false);
+            pieChartShow.setDisable(false);
+            usageShow.setDisable(false);
         }
 
         colIndex.setCellValueFactory(new PropertyValueFactory<packetProperty,Integer>("index"));
@@ -121,16 +122,6 @@ public class Controller implements Initializable{
         tblViewDataItems.getColumns().addAll(colIndex, colTime,colSourceIp,colDestinationIp,colProtocol,colLength);
 
     }
-
-
-    //packetInfo.add(new packetProperty(i, t, FormatUtils.ip(ip.source()), FormatUtils.ip(ip.destination()), "TCP", l));
-
-    /*@FXML
-    public void addDataToTable(int i, String t, String SrcIP, String DstIP, String Prot, int l) {
-        packetInfo.add(new packetProperty( i, t, SrcIP, DstIP, Prot, l));
-
-    }*/
-
     /***HOMY/IRIS***/
     public void usageShow(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));

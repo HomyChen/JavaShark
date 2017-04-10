@@ -41,28 +41,14 @@ public class pieChartController implements Initializable {
     private PieChart chart;
     @FXML
     private Button back;
-   // int uc = Controller.getCurrentPcap().getUdpCount();
-    //int tc = Controller.getCurrentPcap().getTcpCount();
-    //bservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(new PieChart.Data("udp", uc), new PieChart.Data("tcp",tc));
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
 
         // Create a new ObservableList of PieChart.Data objects, then iterate and convert the DataItems.
        int uc = Controller.getCurrentPcap().getUdpCount();
         int tc = Controller.getCurrentPcap().getTcpCount();
         ObservableList<Data> pieChartData = FXCollections.observableArrayList(new Data("udp", uc), new Data("tcp",tc));
-
-        //final PieChart chart = new PieChart(pieChartData);
-
-        //ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-       // pieChartData.add(new PieChart.Data("udp", uc));
-       // pieChartData.add(new PieChart.Data("tcp",tc));
-
-
         // Display the Pie chart.
-        //chart.setTitle("Categories");
         chart.setData(pieChartData);
 
         final Label caption = new Label("");
@@ -83,15 +69,8 @@ public class pieChartController implements Initializable {
     }
     @FXML
     public void goBackToTable(ActionEvent e) throws Exception{
-
-
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-
-
         Main.window.setScene(new Scene(root, 600, 400));
-
-
-
     }
 
     @FXML

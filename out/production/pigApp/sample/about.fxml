@@ -50,7 +50,7 @@
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Authors: Homy Chen, Iris Lee, Fan Zhang" wrappingWidth="267.63427734375" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product Version : " wrappingWidth="140.1533203125" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pig App Version 2.0.1 Date: April 13, 2017 " wrappingWidth="145.53271484375" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pig App Version 0.9.0 Date: April 13, 2017 " wrappingWidth="145.53271484375" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>

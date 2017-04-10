@@ -59,6 +59,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="18" column="106" lean-forward="false" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="pcapStats.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/pcapStats.fxml">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pcap.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pcap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/pcap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="231" column="30" lean-forward="true" selection-start-line="231" selection-start-column="30" selection-end-line="231" selection-end-column="30" />
+            <state relative-caret-position="4686">
+              <caret line="222" column="9" lean-forward="true" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1289#1290#0" expanded="true" />
@@ -152,56 +177,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsageStatRow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/UsageStatRow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
-              <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="28" />
-              <folding>
-                <element signature="e#1520#1521#0" expanded="true" />
-                <element signature="e#1574#1575#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pcapview.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/pcapview.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-              <folding>
-                <element signature="e#135#136#0" expanded="true" />
-                <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#197#198#0" expanded="true" />
-                <element signature="e#269#270#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+            <state relative-caret-position="391">
+              <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="26" column="81" lean-forward="false" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -265,19 +249,19 @@
         <option value="$PROJECT_DIR$/src/sample/ExceptionReadingPcapFiles.java" />
         <option value="$PROJECT_DIR$/src/sample/pcapview.java" />
         <option value="$PROJECT_DIR$/src/sample/packetProperty.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/scene1.fxml" />
         <option value="$PROJECT_DIR$/src/sample/pieChartController.java" />
         <option value="$PROJECT_DIR$/src/sample/usageStats.fxml" />
         <option value="$PROJECT_DIR$/src/sample/UsageStatRow.java" />
         <option value="$PROJECT_DIR$/src/sample/UsageStatController.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/pcapStats.fxml" />
         <option value="$PROJECT_DIR$/src/sample/pcapStatsRow.java" />
         <option value="$PROJECT_DIR$/src/sample/pcapStatsController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/pcap.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
       </list>
     </option>
   </component>
@@ -317,6 +301,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JavaShark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaShark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaShark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -726,28 +724,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/pcap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1325">
-          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1467#1468#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1705#1706#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <marker date="1491797409713" expanded="false" signature="17911:17919" ph="&lt;~&gt;" />
-            <marker date="1491797409713" expanded="false" signature="17974:17991" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/ExceptionReadingPcapFiles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -943,16 +919,6 @@
     <entry file="file://$PROJECT_DIR$/src/sample/startUp.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.361/MainController.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/preLoaderController.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/preLoader.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="253" lean-forward="false" selection-start-line="5" selection-start-column="253" selection-end-line="5" selection-end-column="253" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.974/ExceptionReadingPcapFiles.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.686/Test_run.java" />
     <entry file="file://$PROJECT_DIR$/../../demo1/src/PcapFile.java" />
@@ -1012,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/UsageStatRow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
@@ -1029,17 +987,6 @@
             <element signature="e#1574#1575#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="26" column="81" lean-forward="false" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/pcapview.java">
@@ -1114,20 +1061,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/pcap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="231" column="30" lean-forward="true" selection-start-line="231" selection-start-column="30" selection-end-line="231" selection-end-column="30" />
+        <state relative-caret-position="4686">
+          <caret line="222" column="9" lean-forward="true" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1289#1290#0" expanded="true" />
@@ -1144,6 +1081,56 @@
             <marker date="1491797409713" expanded="false" signature="17974:17991" ph="&lt;~&gt;" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/image/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="1117" column="0" lean-forward="false" selection-start-line="1117" selection-start-column="0" selection-end-line="1117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/preLoader.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="253" lean-forward="false" selection-start-line="5" selection-start-column="253" selection-end-line="5" selection-end-column="253" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="106" lean-forward="false" selection-start-line="18" selection-start-column="106" selection-end-line="18" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>

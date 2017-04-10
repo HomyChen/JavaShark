@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
+import javafx.scene.image.Image;
 
 import sun.misc.Launcher;
 
@@ -47,6 +48,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
         window.setTitle("Pig App");
+        window.getIcons().add(new Image("application_icon_pig1.png"));
         window.setScene(new Scene(root, 600, 400));
 
         window.show();

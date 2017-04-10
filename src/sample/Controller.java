@@ -1,6 +1,7 @@
 package sample;
 
 
+import javafx.application.Platform;
 import javafx.application.Preloader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -137,6 +138,11 @@ public class Controller implements Initializable{
     public void statsShow(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
         Main.window.setScene(new Scene(root, 700, 400));
+    }
+
+    public void close(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 }
 

@@ -20,10 +20,6 @@ import org.jnetpcap.util.PcapPacketArrayList;
 import static jdk.nashorn.internal.objects.NativeMath.round;
 import static sample.Controller.packetInfo;
 
-/**
-
- * Doing some IO functions related to PCAP files.
- */
 public class pcap {
 
     /*************************************************
@@ -36,10 +32,6 @@ public class pcap {
     private int udpCount = 0;
     private PcapPacketArrayList pcapPacketArrayList;
 
-    /**
-     *
-     * @param FileAddress  Address and the name of the PCAP file.
-     */
     public pcap(String FileAddress) throws ExceptionReadingPcapFiles {
         this.FileAddress = FileAddress;
         this.pcapPacketArrayList = this.readOfflineFiles();

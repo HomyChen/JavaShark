@@ -29,6 +29,8 @@ public class pcap {
      * Local Variables
      *************************************************/
     String FileAddress = "";
+
+    private int packetCount = 0;
     private int tcpCount = 0;
     private int udpCount = 0;
 
@@ -49,6 +51,23 @@ public class pcap {
         return udpCount;
     }
 
+    public void setTcpCount(int tcpCount) {
+        this.tcpCount = tcpCount;
+    }
+
+    public void setUdpCount(int udpCount) {
+        this.udpCount = udpCount;
+    }
+
+    public int getPacketCount() throws ExceptionReadingPcapFiles {
+        this.readOfflineFiles();
+        return packetCount;
+    }
+
+    public void setPacketCount(int packetCount) {
+        this.packetCount = packetCount;
+    }
+
     /**
      * Opens the offline Pcap-formatted file.
      *
@@ -57,6 +76,9 @@ public class pcap {
      */
     public PcapPacketArrayList readOfflineFiles() throws ExceptionReadingPcapFiles
     {
+        this.setPacketCount(0);
+        this.setTcpCount(0);
+        this.setUdpCount(0);
         //First, setup error buffer and name for our file
         final StringBuilder errbuf = new StringBuilder(); // For any error msgs
 
@@ -81,6 +103,7 @@ public class pcap {
                 Ip6 ip1 = new Ip6();
                 Tcp tcp = new Tcp();
                 Udp udp = new Udp();
+                packetCount++;
 
                 if(packet.hasHeader(tcp)){
                     //System.out.println("TCP");
@@ -275,6 +298,25 @@ public class pcap {
         double totalTimeSeconds = ((timeStampEnd-timeStampBegin)/(1e9));
         return totalTimeSeconds;
     }
+
+    public double getUdpPer() throws ExceptionReadingPcapFiles{
+        this.readOfflineFiles();
+        double udpPer = ((double) udpCount / (double) packetCount)*100;
+        return udpPer;
+    }
+
+    public double getTcpPer() throws ExceptionReadingPcapFiles{
+        this.readOfflineFiles();
+        double tcpPer = ((double) tcpCount/ (double) packetCount)*100;
+        return tcpPer;
+    }
+
+    public double getDataRate() throws ExceptionReadingPcapFiles {
+        this.readOfflineFiles();
+        double dataRate = ((double)getTotalData()/ (double)getTotalTime());
+        return dataRate;
+    }
+
 
     private HashSet<String> getAllAddresses() throws ExceptionReadingPcapFiles {
         PcapPacketArrayList packets = this.readOfflineFiles();

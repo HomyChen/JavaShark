@@ -24,6 +24,7 @@
             <items>
               <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="Tcp/Udp Piechart" />
                   <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Data" />
+                  <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

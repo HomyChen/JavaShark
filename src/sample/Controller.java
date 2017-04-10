@@ -135,6 +135,10 @@ public class Controller implements Initializable{
         Main.window.setScene(new Scene(root, 700, 400));
     }
 
+    public void statsShow(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
+        Main.window.setScene(new Scene(root, 700, 400));
+    }
 }
 
 

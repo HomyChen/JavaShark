@@ -13,8 +13,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.jnetpcap.packet.PcapPacket;
 
 import java.io.File;
@@ -143,6 +145,15 @@ public class Controller implements Initializable{
     public void close(ActionEvent actionEvent) {
         Platform.exit();
         System.exit(0);
+    }
+
+    public void aboutShow(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("about.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("About Us");
+        stage.getIcons().add(new Image("application_icon_pig1.png"));
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 }
 

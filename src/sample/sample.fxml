@@ -22,14 +22,15 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Analysis">
             <items>
-                  <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
-              <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="Tcp/Udp Piechart" />
-                  <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Data" />
+                <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
+                <MenuItem fx:id="summaryTable" mnemonicParsing="false" text="Summary Table" />
+                <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="TCP/UDP Piechart" />
+                <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Data" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutShow" text="About" />
             </items>
           </Menu>
         </menus>

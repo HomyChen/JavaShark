@@ -28,7 +28,7 @@ import static sample.Controller.packetInfo;
 /**
  * Created by Homy Chen on 2017-04-03.
  */
-public class UsageStatController extends Controller implements Initializable{
+public class UsageStatController extends SubController implements Initializable{
     private pcap currentPcap = Controller.getCurrentPcap();
     @FXML
     private TableView<UsageStatRow> tblViewUsageStats;
@@ -76,14 +76,5 @@ public class UsageStatController extends Controller implements Initializable{
         tblViewUsageStats.getColumns().clear();
         tblViewUsageStats.setItems(enteredUsageStatItems);
         tblViewUsageStats.getColumns().addAll(colIPAddress, colInboundUsageBytes, colOutboundUsageBytes, colInboundUsagePer, colOutboundUsagePer);
-    }
-    @FXML
-    public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(Main.window);
-        if (file != null) {
-            currentPcap = new pcap(file.getPath());
-            System.out.println("testing3: size of packetInfo" + packetInfo.size());
-        }
     }
 }

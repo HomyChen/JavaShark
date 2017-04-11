@@ -53,33 +53,30 @@ public class Controller implements Initializable{
     private MenuItem summaryTable;
     @FXML
     private MenuItem usageShow;
+    @FXML
+    private Menu analysisMenu;
 
     public static ObservableList<packetProperty> packetInfo = FXCollections.observableArrayList();
 
-    private static pcap currentPcap;
+    protected static pcap currentPcap;
     public  static pcap getCurrentPcap(){
         return currentPcap;
     }
     @FXML
     public void pieChartShow(ActionEvent e) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-        Main.window.setScene(new Scene(root, 600, 400));
+        Main.window.setScene(new Scene(root, 1000, 700));
     }
     @FXML
-    public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
+    public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles, IOException {
         final FileChooser fileChooser = new FileChooser();
                         File file = fileChooser.showOpenDialog(Main.window);
                         if (file != null) {
+                            packetInfo.clear();
                             currentPcap = new pcap(file.getPath());
                             welcome.setVisible(false);
                             tblViewDataItems.setVisible(true);
-                            welcome.setVisible(false);
-                            tblViewDataItems.setVisible(true);
-                            stats.setDisable(false);
-                            summaryTable.setDisable(false);
-                            pieChartShow.setDisable(false);
-                            usageShow.setDisable(false);
-                            System.out.println("testing3: size of packetInfo" + packetInfo.size());
+                            analysisMenu.setDisable(false);
                         }
                     }
 
@@ -93,17 +90,10 @@ public class Controller implements Initializable{
         if(currentPcap == null){
             welcome.setVisible(true);
             tblViewDataItems.setVisible(false);
-            stats.setDisable(true);
-            summaryTable.setDisable(true);
-            pieChartShow.setDisable(true);
-            usageShow.setDisable(true);
+            analysisMenu.setDisable(true);
         }else{
             welcome.setVisible(false);
             tblViewDataItems.setVisible(true);
-            stats.setDisable(false);
-            summaryTable.setDisable(false);
-            pieChartShow.setDisable(false);
-            usageShow.setDisable(false);
         }
 
         colIndex.setCellValueFactory(new PropertyValueFactory<packetProperty,Integer>("index"));
@@ -121,15 +111,15 @@ public class Controller implements Initializable{
         tblViewDataItems.getColumns().addAll(colIndex, colTime,colSourceIp,colDestinationIp,colProtocol,colLength);
 
     }
-    /***HOMY/IRIS***/
+
     public void usageShow(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));
-        Main.window.setScene(new Scene(root, 700, 400));
+        Main.window.setScene(new Scene(root, 1000, 700));
     }
 
     public void statsShow(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
-        Main.window.setScene(new Scene(root, 700, 400));
+        Main.window.setScene(new Scene(root, 1000, 700));
     }
 
     public void close(ActionEvent actionEvent) {
@@ -142,14 +132,18 @@ public class Controller implements Initializable{
         Stage stage = new Stage();
         stage.setTitle("About Us");
         stage.getIcons().add(new Image("application_icon_pig1.png"));
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 1000, 700));
         stage.show();
     }
 
     @FXML
     public void goBackToTable(ActionEvent e) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Main.window.setScene(new Scene(root, 600, 400));
+        Main.window.setScene(new Scene(root, 1000, 700));
+    }
+
+    protected void inputFileHelper(){
+
     }
 }
 

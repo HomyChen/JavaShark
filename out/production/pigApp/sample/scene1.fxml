@@ -17,7 +17,7 @@
                   <MenuItem fx:id="exit" mnemonicParsing="false" text="Close" onAction="#close"/>
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Analysis">
+            <Menu fx:id="analysisMenu" mnemonicParsing="false" text="Analysis">
                <items>
                   <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
                   <MenuItem fx:id="summaryTable" mnemonicParsing="false" onAction="#goBackToTable" text="Summary Table" />

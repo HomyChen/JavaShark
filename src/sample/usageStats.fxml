@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UsageStatController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UsageStatController">
    <children>
        <MenuBar>
            <menus>
@@ -19,7 +16,7 @@
                        <MenuItem fx:id="exit" mnemonicParsing="false" text="Close" onAction="#close"/>
                    </items>
                </Menu>
-               <Menu mnemonicParsing="false" text="Analysis">
+               <Menu fx:id="analysisMenu" mnemonicParsing="false" text="Analysis">
                    <items>
                        <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
                        <MenuItem fx:id="summaryTable" mnemonicParsing="false" onAction="#goBackToTable" text="Summary Table" />
@@ -35,7 +32,7 @@
                </Menu>
            </menus>
        </MenuBar>
-      <StackPane prefHeight="374.0" prefWidth="700.0">
+      <StackPane prefHeight="674.0" prefWidth="1000.0">
          <children>
             <TableView fx:id="tblViewUsageStats" prefHeight="345.0" prefWidth="700.0">
               <columns>

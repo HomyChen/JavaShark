@@ -22,7 +22,7 @@
                 <Menu fx:id="analysisMenu" mnemonicParsing="false" text="Analysis">
                     <items>
                         <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
-                        <MenuItem fx:id="summaryTable" mnemonicParsing="false" text="Summary Table" />
+                        <MenuItem fx:id="summaryTable" mnemonicParsing="false" onAction="#goBackToTable" text="Summary Table" />
                         <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="TCP/UDP Piechart" />
                         <MenuItem fx:id="linechart" onAction="#lineChartShow" mnemonicParsing="false" text="Network Traffic" />
                         <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Per IP" />

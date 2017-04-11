@@ -1,0 +1,6 @@
+#pane1{
+    -fx-background-image: url("Pig.jpg");
+	-fx-background-repeat: stretch;
+
+    -fx-background-position: center;
+}

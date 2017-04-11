@@ -27,6 +27,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
     @FXML
+    public MenuItem linechart;
+    @FXML
     private StackPane pane1;
     @FXML
     private Label welcome;
@@ -77,6 +79,7 @@ public class Controller implements Initializable{
                             welcome.setVisible(false);
                             tblViewDataItems.setVisible(true);
                             analysisMenu.setDisable(false);
+                            currentPcap.getTrafficData();
                         }
                     }
 
@@ -142,8 +145,9 @@ public class Controller implements Initializable{
         Main.window.setScene(new Scene(root, 1000, 700));
     }
 
-    protected void inputFileHelper(){
-
+    public void lineChartShow(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("lineChart.fxml"));
+        Main.window.setScene(new Scene(root, 1000, 700));
     }
 }
 

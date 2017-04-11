@@ -6,6 +6,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.sun.xml.internal.ws.api.message.Packet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.jnetpcap.*;
@@ -138,7 +139,6 @@ public class pcap {
         }
     }
 
-    /****------HOMY/IRIS------****/
     public void printPacketsArrayList() throws ExceptionReadingPcapFiles {
         PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
         int totalDataInBytes = 0;
@@ -209,6 +209,25 @@ public class pcap {
         }
         double totalTimeSeconds = ((timeStampEnd-timeStampBegin)/(1e9));
         return totalTimeSeconds;
+    }
+
+    public ArrayList<Integer> getTrafficData() throws ExceptionReadingPcapFiles {
+        PcapPacketArrayList pcapPacketArrayList = this.pcapPacketArrayList;
+        double totalTime = this.getTotalTime();
+        int capacity = (int)Math.ceil(totalTime)+1;
+        ArrayList<Integer> returnData = new ArrayList<>();
+        for(int i=0; i<capacity; i++){
+            returnData.add(0);
+        }
+        double timeStampBegin = pcapPacketArrayList.get(0).getCaptureHeader().timestampInNanos();
+        for(PcapPacket packet : pcapPacketArrayList){
+            double timeStamp = (packet.getCaptureHeader().timestampInNanos() - timeStampBegin)/(1e9);
+            Integer packetData = packet.getCaptureHeader().wirelen();
+            Integer index = (int)Math.ceil(timeStamp);
+            Integer oldCountData = returnData.get(index);
+            returnData.set((int)Math.ceil(timeStamp), oldCountData + packetData);
+        }
+        return returnData;
     }
 
     public double getUdpPer() throws ExceptionReadingPcapFiles{
@@ -335,7 +354,5 @@ public class pcap {
         }
         return flags;
     }
-
-    /****------HOMY/IRIS------END****/
 }
 

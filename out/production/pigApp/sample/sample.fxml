@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar>
         <menus>
@@ -35,7 +35,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <StackPane fx:id="pane1" prefHeight="379.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <StackPane fx:id="pane1" prefHeight="379.0" prefWidth="600.0" stylesheets="@style.css" VBox.vgrow="ALWAYS">
          <children>
             <Label fx:id="welcome" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="145.0" text="Welcome to Pig App!">
                <font>

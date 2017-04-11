@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -36,8 +37,7 @@ import static sample.Controller.packetInfo;
 /**
  * Created by Ariest on 2017-04-01.
  */
-public class pieChartController extends Controller implements Initializable {
-    private pcap currentPcap = Controller.getCurrentPcap();
+public class pieChartController extends SubController implements Initializable {
 
     @FXML
     private PieChart chart;
@@ -47,8 +47,8 @@ public class pieChartController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Create a new ObservableList of PieChart.Data objects, then iterate and convert the DataItems.
-       int uc = Controller.getCurrentPcap().getUdpCount();
-        int tc = Controller.getCurrentPcap().getTcpCount();
+       int uc = this.currentPcap.getUdpCount();
+        int tc = this.currentPcap.getTcpCount();
         ObservableList<Data> pieChartData = FXCollections.observableArrayList(new Data("udp", uc), new Data("tcp",tc));
         // Display the Pie chart.
         chart.setData(pieChartData);
@@ -70,12 +70,4 @@ public class pieChartController extends Controller implements Initializable {
         }
     }
 
-    @FXML
-    public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles {
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(Main.window);
-        if (file != null) {
-            currentPcap = new pcap(file.getPath());
-        }
-    }
 }

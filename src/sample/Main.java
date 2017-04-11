@@ -49,7 +49,7 @@ public class Main extends Application {
 
         window.setTitle("Pig App");
         window.getIcons().add(new Image("application_icon_pig1.png"));
-        window.setScene(new Scene(root, 600, 400));
+        window.setScene(new Scene(root, 1000, 700));
 
         window.show();
         System.out.println("-----------test1----------");

@@ -6,8 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7a673cd-21e9-4b29-b66d-4716e21e5b05" name="Default" comment="&quot;testing intellij commit&quot;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/SubController.java" />
+    <list default="true" id="c7a673cd-21e9-4b29-b66d-4716e21e5b05" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/Controller.class" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/UsageStatController.class" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/UsageStatController.class" />
@@ -17,15 +16,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/sample.fxml" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/sample.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/scene1.fxml" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/scene1.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/usageStats.fxml" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/usageStats.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/UsageStatController.java" afterPath="$PROJECT_DIR$/src/sample/UsageStatController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/pcapStats.fxml" afterPath="$PROJECT_DIR$/src/sample/pcapStats.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/pcapStatsController.java" afterPath="$PROJECT_DIR$/src/sample/pcapStatsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/pieChartController.java" afterPath="$PROJECT_DIR$/src/sample/pieChartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/sample.fxml" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/scene1.fxml" afterPath="$PROJECT_DIR$/src/sample/scene1.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/usageStats.fxml" afterPath="$PROJECT_DIR$/src/sample/usageStats.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -537,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491925712942</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="made all controllers a subclass of the SubController subclass">
+      <created>1491936158592</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1491936158592</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -580,7 +577,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;testing intellij commit&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;testing intellij commit&quot;" />
+    <MESSAGE value="made all controllers a subclass of the SubController subclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="made all controllers a subclass of the SubController subclass" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

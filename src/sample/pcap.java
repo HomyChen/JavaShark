@@ -60,7 +60,7 @@ public class pcap {
         this.packetCount = packetCount;
     }
 
-    public PcapPacketArrayList readOfflineFiles() throws ExceptionReadingPcapFiles
+    public PcapPacketArrayList readOfflineFiles() throws ExceptionReadingPcapFiles, RuntimeException
     {
         this.setPacketCount(0);
         this.setTcpCount(0);
@@ -69,10 +69,14 @@ public class pcap {
         final StringBuilder errbuf = new StringBuilder(); // For any error msgs
 
         Pcap pcap = Pcap.openOffline(FileAddress, errbuf);
-        if (pcap == null) {
+
+
+        if (pcap == null ) {
             System.out.println("Could not open pcap file....");
             throw new ExceptionReadingPcapFiles(errbuf.toString());
+
         }
+
         PcapPacketHandler<PcapPacketArrayList> jpacketHandler = new PcapPacketHandler<PcapPacketArrayList>() {
             public void nextPacket(PcapPacket packet, PcapPacketArrayList PacketsList) {
                 Ip4 ip = new Ip4();

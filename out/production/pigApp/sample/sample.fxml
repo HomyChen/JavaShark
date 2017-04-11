@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar>
         <menus>
@@ -23,7 +23,7 @@
           <Menu fx:id="analysisMenu" mnemonicParsing="false" text="Analysis">
             <items>
                 <MenuItem fx:id="stats" mnemonicParsing="false" onAction="#statsShow" text="File Statistics" />
-                <MenuItem fx:id="summaryTable" mnemonicParsing="false" text="Summary Table" />
+                <MenuItem fx:id="summaryTable" mnemonicParsing="false" onAction="#goBackToTable" text="Summary Table" />
                 <MenuItem fx:id="pieChartShow" mnemonicParsing="false" onAction="#pieChartShow" text="TCP/UDP Piechart" />
                 <MenuItem fx:id="linechart" onAction="#lineChartShow" mnemonicParsing="false" text="Network Traffic" />
                 <MenuItem fx:id="usageShow" mnemonicParsing="false" onAction="#usageShow" text="View Traffic Per IP" />
@@ -38,9 +38,9 @@
       </MenuBar>
       <StackPane fx:id="pane1" prefHeight="379.0" prefWidth="600.0" stylesheets="@style.css" VBox.vgrow="ALWAYS">
          <children>
-            <Label fx:id="welcome" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="145.0" text="Welcome to Pig App!">
+            <Label fx:id="welcome" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="596.0" text="Welcome to Pig App!">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="33.0" />
                </font>
             </Label>
             <TableView fx:id="tblViewDataItems" maxHeight="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" visible="false" StackPane.alignment="CENTER">

@@ -17,7 +17,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.jnetpcap.packet.PcapPacket;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -61,6 +63,8 @@ public class Controller implements Initializable{
     public static ObservableList<packetProperty> packetInfo = FXCollections.observableArrayList();
 
     protected static pcap currentPcap;
+    String filename;
+    String ext;
     public  static pcap getCurrentPcap(){
         return currentPcap;
     }
@@ -73,15 +77,26 @@ public class Controller implements Initializable{
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles, IOException {
         final FileChooser fileChooser = new FileChooser();
                         File file = fileChooser.showOpenDialog(Main.window);
-                        if (file != null) {
-                            packetInfo.clear();
-                            currentPcap = new pcap(file.getPath());
-                            welcome.setVisible(false);
-                            tblViewDataItems.setVisible(true);
-                            analysisMenu.setDisable(false);
-                            currentPcap.getTrafficData();
+
+                        if(file!=null){
+                            filename = file.getName();
+                            ext = filename.substring(filename.lastIndexOf(".") + 1);
+                            if (ext.equals("pcap")) {
+                                packetInfo.clear();
+                                currentPcap = new pcap(file.getPath());
+                                welcome.setVisible(false);
+                                tblViewDataItems.setVisible(true);
+                                analysisMenu.setDisable(false);
+                            }else{
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setTitle("Error");
+                                alert.setHeaderText("Incorrect File Format");
+                                alert.setContentText("Please choose a pcap file!");
+                                alert.showAndWait();
+                            }
                         }
-                    }
+
+    }
 
     @Override
    public void initialize(URL location, ResourceBundle resources) {
@@ -135,7 +150,7 @@ public class Controller implements Initializable{
         Stage stage = new Stage();
         stage.setTitle("About Us");
         stage.getIcons().add(new Image("application_icon_pig1.png"));
-        stage.setScene(new Scene(root, 1000, 700));
+        stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }
 

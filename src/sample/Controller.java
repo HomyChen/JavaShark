@@ -79,7 +79,6 @@ public class Controller implements Initializable{
                             summaryTable.setDisable(false);
                             pieChartShow.setDisable(false);
                             usageShow.setDisable(false);
-                            System.out.println("testing3: size of packetInfo" + packetInfo.size());
                         }
                     }
 

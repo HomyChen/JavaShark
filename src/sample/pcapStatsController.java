@@ -46,11 +46,11 @@ public class pcapStatsController extends SubController implements Initializable{
             String totalData = String.valueOf(currentPcap.getTotalData());
             String totalPacket = String.valueOf(currentPcap.getPacketCount());
             String dataRate = String.format("%.2f", currentPcap.getDataRate());
-            thePcapStatItems.add(new pcapStatsRow("TCP Percentage", tcpPer));
-            thePcapStatItems.add(new pcapStatsRow("UDP Percentage", udpPer));
-            thePcapStatItems.add(new pcapStatsRow("Total Packet Data (in bytes)", totalData));
-            thePcapStatItems.add(new pcapStatsRow("Total # of Packets", totalPacket));
-            thePcapStatItems.add(new pcapStatsRow("Data Rate (bytes per second)", dataRate));
+            thePcapStatItems.add(new pcapStatsRow("TCP (% of All Packets)", tcpPer));
+            thePcapStatItems.add(new pcapStatsRow("UDP (% of All Packets)", udpPer));
+            thePcapStatItems.add(new pcapStatsRow("Total Packet Data (bytes)", totalData));
+            thePcapStatItems.add(new pcapStatsRow("Total Number of Packets", totalPacket));
+            thePcapStatItems.add(new pcapStatsRow("Average Data Rate (bytes per second)", dataRate));
 
         } catch (ExceptionReadingPcapFiles exceptionReadingPcapFiles) {
             exceptionReadingPcapFiles.printStackTrace();

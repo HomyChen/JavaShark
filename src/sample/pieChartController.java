@@ -1,6 +1,8 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.DoubleBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +26,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
+
 import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -53,21 +57,16 @@ public class pieChartController extends SubController implements Initializable {
         // Display the Pie chart.
         chart.setData(pieChartData);
 
-        final Label caption = new Label("");
+        DoubleBinding total = Bindings.createDoubleBinding(() ->
+                pieChartData.stream().collect(Collectors.summingDouble(PieChart.Data::getPieValue)), pieChartData);
 
-        caption.setTextFill(Color.WHITE);
-        caption.setStyle("-fx-font: 24 arial;");
-
-        for( final PieChart.Data data : chart.getData()) {
-            data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
-                    new EventHandler<MouseEvent>() {
-                        @Override public void handle(MouseEvent e) {
-                            caption.setTranslateX(e.getSceneX());
-                            caption.setTranslateY(e.getSceneY());
-                            caption.setText(String.valueOf(data.getPieValue()) + "%");
-                        }
-                    });
-        }
+        pieChartData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName(), " " , String.format("%.1f%%", 100*data.getPieValue()/total.get())
+                        )
+                )
+        );
     }
 
 }

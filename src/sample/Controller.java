@@ -71,7 +71,7 @@ public class Controller implements Initializable{
     @FXML
     public void pieChartShow(ActionEvent e) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-        Main.window.setScene(new Scene(root, 1000, 700));
+        Main.window.setScene(new Scene(root));
     }
     @FXML
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles, IOException {
@@ -132,12 +132,12 @@ public class Controller implements Initializable{
 
     public void usageShow(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("usageStats.fxml"));
-        Main.window.setScene(new Scene(root, 1000, 700));
+        Main.window.setScene(new Scene(root));
     }
 
     public void statsShow(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("pcapStats.fxml"));
-        Main.window.setScene(new Scene(root, 1000, 700));
+        Main.window.setScene(new Scene(root));
     }
 
     public void close(ActionEvent actionEvent) {
@@ -157,12 +157,12 @@ public class Controller implements Initializable{
     @FXML
     public void goBackToTable(ActionEvent e) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Main.window.setScene(new Scene(root, 1000, 700));
+        Main.window.setScene(new Scene(root));
     }
 
     public void lineChartShow(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("lineChart.fxml"));
-        Main.window.setScene(new Scene(root, 1000, 700));
+        Main.window.setScene(new Scene(root));
     }
 }
 

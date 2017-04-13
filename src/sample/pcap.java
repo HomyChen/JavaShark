@@ -81,11 +81,11 @@ public class pcap {
             public void nextPacket(PcapPacket packet, PcapPacketArrayList PacketsList) {
                 Ip4 ip = new Ip4();
                 Ip6 ip1 = new Ip6();
-                Tcp tcp = new Tcp();
+                Tcp TCP = new Tcp();
                 Udp udp = new Udp();
                 packetCount++;
 
-                if(packet.hasHeader(tcp)){
+                if(packet.hasHeader(TCP)){
                     tcpCount++;
                 } else if (packet.hasHeader(udp)) {
                     udpCount++;

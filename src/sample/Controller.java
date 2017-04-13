@@ -68,11 +68,7 @@ public class Controller implements Initializable{
     public  static pcap getCurrentPcap(){
         return currentPcap;
     }
-    @FXML
-    public void pieChartShow(ActionEvent e) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("scene1.fxml"));
-        Main.window.setScene(new Scene(root));
-    }
+
     @FXML
     public  void inputFile(ActionEvent e) throws ExceptionReadingPcapFiles, IOException {
         final FileChooser fileChooser = new FileChooser();

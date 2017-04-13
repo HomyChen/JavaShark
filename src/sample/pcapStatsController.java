@@ -41,16 +41,24 @@ public class pcapStatsController extends SubController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            String udpPer = String.format("%.2f", currentPcap.getUdpPer());
-            String tcpPer = String.format("%.2f", currentPcap.getTcpPer());
-            String totalData = String.valueOf(currentPcap.getTotalData());
+            String udpPer = String.format("%.2f", currentPcap.getUdpPer()) + "% of All Packets";
+            String udpCount = String.valueOf(currentPcap.getUdpCount());
+            String tcpPer = String.format("%.2f", currentPcap.getTcpPer()) + "% of All Packets";
+            String tcpCount = String.valueOf(currentPcap.getTcpCount());
+            String totalData = String.valueOf(currentPcap.getTotalData()) + " bytes";
             String totalPacket = String.valueOf(currentPcap.getPacketCount());
-            String dataRate = String.format("%.2f", currentPcap.getDataRate());
-            thePcapStatItems.add(new pcapStatsRow("TCP (% of All Packets)", tcpPer));
-            thePcapStatItems.add(new pcapStatsRow("UDP (% of All Packets)", udpPer));
-            thePcapStatItems.add(new pcapStatsRow("Total Packet Data (bytes)", totalData));
+            String dataRate = String.format("%.2f", currentPcap.getDataRate()) + " bytes/s";
+            String pcapTime = String.format("%.2f", currentPcap.getTotalTime()) + " seconds";
+            String packetsPerSec = String.format("%.2f", (currentPcap.getPacketCount() / currentPcap.getTotalTime())) + " packets/s";
+            thePcapStatItems.add(new pcapStatsRow("TCP Percentage", tcpPer));
+            thePcapStatItems.add(new pcapStatsRow("UDP Percentage", udpPer));
+            thePcapStatItems.add(new pcapStatsRow("Number of TCP Packets", tcpCount));
+            thePcapStatItems.add(new pcapStatsRow("Number of UDP packets", udpCount));
+            thePcapStatItems.add(new pcapStatsRow("Total Packet Data", totalData));
             thePcapStatItems.add(new pcapStatsRow("Total Number of Packets", totalPacket));
-            thePcapStatItems.add(new pcapStatsRow("Average Data Rate (bytes per second)", dataRate));
+            thePcapStatItems.add(new pcapStatsRow("Total Time Elapsed", pcapTime));
+            thePcapStatItems.add(new pcapStatsRow("Average Packets Per Second", packetsPerSec));
+            thePcapStatItems.add(new pcapStatsRow("Average Data Rate", dataRate));
 
         } catch (ExceptionReadingPcapFiles exceptionReadingPcapFiles) {
             exceptionReadingPcapFiles.printStackTrace();

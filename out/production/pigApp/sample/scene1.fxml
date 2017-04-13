@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.stage.Screen?>
+<?import javafx.geometry.Insets?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700" prefWidth="1000" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pieChartController">
    <children>
       <MenuBar>
@@ -34,6 +35,9 @@
             </Menu>
          </menus>
       </MenuBar>
-      <PieChart fx:id="chart" title="UDP vs TCP" VBox.vgrow="ALWAYS" />
+      <PieChart fx:id="chart" maxHeight="-Infinity" title="UDP vs TCP" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="100.0" />
+         </VBox.margin></PieChart>
    </children>
 </VBox>

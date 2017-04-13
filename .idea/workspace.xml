@@ -6,13 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7a673cd-21e9-4b29-b66d-4716e21e5b05" name="Default" comment="Added more stats to pcapStats">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/pigApp.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jnetpcap_1_3.xml" afterPath="" />
+    <list default="true" id="c7a673cd-21e9-4b29-b66d-4716e21e5b05" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/pigApp/sample/pcap$1.class" afterPath="$PROJECT_DIR$/out/production/pigApp/sample/pcap$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pigApp.iml" afterPath="$PROJECT_DIR$/pigApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/pcap.java" afterPath="$PROJECT_DIR$/src/sample/pcap.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,8 +116,7 @@
             <state relative-caret-position="1484">
               <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
               <folding>
-                <element signature="e#1009#1010#0" expanded="true" />
-                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -627,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492074908872</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="testing commiting pigApp.jar">
+      <created>1492119899205</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1492119899205</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -708,7 +710,8 @@
     <MESSAGE value="Made some changes trying to make prefwidth and prefheight work. They still don't." />
     <MESSAGE value="Added Fan's piechart changes, tweaked the pcapStats table" />
     <MESSAGE value="Added more stats to pcapStats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more stats to pcapStats" />
+    <MESSAGE value="testing commiting pigApp.jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing commiting pigApp.jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1110,8 +1113,7 @@
         <state relative-caret-position="1484">
           <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding>
-            <element signature="e#1009#1010#0" expanded="true" />
-            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
